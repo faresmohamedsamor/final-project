@@ -1,0 +1,1309 @@
+/* ===================================
+   EduVerse - Ultra Professional CSS Theme
+   =================================== */
+
+   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
+
+   :root {
+        --primary: black;
+        --primary-light: #ffb347;
+        --secondary: #b65d00;
+        --accent: #ffcc00;
+        --gold: #e0b400;
+      
+        --text-dark: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+        --text-light: linear-gradient(270deg, #5D4037, #ffecb3, #FFD54F);
+        --muted: #a1887f;
+      
+        --bg-light: linear-gradient(270deg, #fff3e0, #ffe0b2);
+        --bg-white: #fffaf5;
+        --bg-dark: linear-gradient(270deg, #3e2723, #4e342e);
+      
+        --border-accent: #c47e00;
+        --highlight: #ffe9b3;
+      
+        --bs-primary: #fa7700;
+        --bs-primary-rgb: 250, 119, 0;
+      }
+       
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+    animation: gradientMove 12s ease infinite;
+    color: var(--text-light);
+    overflow-x: hidden;
+  }
+   
+   h1, h2, h3, h4, h5, h6  {
+     font-weight: 700;
+   }
+   h2.text-primary {
+    color: #000 !important;
+  }
+   a {
+     color: white;
+     text-decoration: none;
+     transition: 0.3s;
+   }
+   
+   a:hover {
+     color: var(--secondary);
+   }
+   
+   section {
+     padding: 100px 0;
+     position: relative;
+     z-index: 1;
+   }
+   
+   @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .input-group .form-control:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 0.15rem rgba(255, 215, 0, 0.25);
+  }
+  #notifyEmail:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 0.15rem rgba(255, 215, 0, 0.25);
+    outline: none;
+  }
+  
+  section:not(#hero):not(#navbar),
+  #footer,
+  #upcoming,
+  #featured,
+  #testimonials,
+  #categories,
+  #trust,
+  #events {
+    background: linear-gradient(270deg, #5D4037, #FFD54F, #5D4037);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: black;
+  }
+
+/* Navbar */
+.topbar {
+   background:linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+  background-size: 600% 600%;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: gradientMove 15s ease infinite;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topbar .left-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.topbar .logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.topbar .logo i {
+  margin-right: 8px;
+}
+
+.topbar .nav-links a {
+  color: white;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.topbar .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.topbar .nav-links a:hover::after {
+  width: 100%;
+}
+
+.topbar .nav-links a:hover {
+  color: #fffacd; /* ذهبي فاتح عند المرور */
+}
+
+.topbar .login-btn {
+  border: 1px solid white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.topbar .login-btn:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+}
+
+/* ===== Hero Section ===== */
+#hero {
+    background:linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+    color: #fff;
+    padding: 5rem 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+  }
+  
+  #hero h1 {
+    font-weight: 900;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  #hero p.lead {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+  }
+  
+  #hero .btn-primary {
+    background: white;
+    color: #000;
+    border: none;
+    padding: 0.75rem 2.5rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(183,110,3,0.5);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #hero .btn-primary:hover {
+    background: #f4a261;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7); 
+
+    color: #000;
+  }
+  /* عند الهوفر: يلمع الزر */
+  #hero .btn-primary:hover {
+    background: linear-gradient(45deg, #ffd700, #ff9900);
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
+  }
+  
+  /* لمعة تمر فوق الزر */
+  #hero .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0)
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  /* تشغيل الأنيميشن عند المرور */
+  #hero .btn-primary:hover::before {
+    animation: shine 0.8s ease forwards;
+  }
+  
+  /* النص يفضل فوق اللمعة */
+  #hero .btn-primary span {
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* لمعة تتحرك */
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 130%;
+    }
+  }
+  
+  
+  #hero img {
+    max-width: 100%;
+    border-radius: 15px;
+ 
+  }
+  
+  /* ===== Categories Section ===== */
+  #categories {
+    background: linear-gradient(135deg, #daa77e, #4b3613); /* بني ذهبي */
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  #categories h2 {
+    font-weight: 800;
+    color: black;
+    margin-bottom: 0.5rem;
+  }
+  
+  #categories p {
+    color: #8c6239;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  #categories .p-4 {
+    border: 1px solid #f4a261;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(183,110,3,0.15);
+  }
+  
+  #categories .p-4:hover {
+    background: #f4a261;
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(183,110,3,0.4);
+    cursor: pointer;
+  }
+  
+  #categories i {
+    color: #b76e03;
+    transition: color 0.3s ease;
+  }
+  
+  #categories .p-4:hover i {
+    color: #fff;
+  }
+  
+  #categories h6 {
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+  /* ===== Hero Section Animations ===== */
+#hero h1 {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideFadeIn 1s forwards;
+    animation-delay: 0.3s;
+  }
+  #hero p {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideFadeIn 1s forwards;
+    animation-delay: 0.6s;
+  }
+  #hero a.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  #hero a.btn-primary:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+  }
+  
+  /* Keyframes for fade + slide in */
+  @keyframes slideFadeIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Parallax effect container */
+  #hero .col-md-6.text-center {
+    overflow: hidden;
+    position: relative;
+  }
+  #hero .col-md-6.text-center img {
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  
+  /* Categories Cards Hover */
+  #categories .p-4 {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  #categories .p-4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0)
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  #categories .p-4:hover::before {
+    animation: shine 0.8s ease forwards;
+  }
+  
+  #categories .p-4:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+  }
+  
+  #categories .p-4 > * {
+    position: relative;
+    z-index: 3;
+  }
+  
+  #categories .p-4:hover i {
+    color: white !important;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.7));
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 130%;
+    }
+  }
+  
+
+  
+
+  /* Add subtle gradient colors on icons normally */
+  #categories .p-4 i {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  
+  #hero {
+    background: linear-gradient(270deg, #5A3E1B, #D4AF37, #5A3E1B);
+    background-size: 600% 600%;
+    animation: gradientShift 20s ease infinite;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+/* قسم Featured Books */
+#featured-books {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #fff !important;
+  }
+
+  /* كروت الكتب */
+  #featured-books .swiper-slide {
+    width: 280px !important;
+    height: auto;
+  }
+  
+  #featured-books .card {
+    border: none;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #3a2a13, #1e1203);
+    box-shadow: 0 4px 20px rgba(255, 183, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  #featured-books .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 200, 50, 0.3);
+  }
+ 
+ /* لمعة على كروت الـ featured-books */
+ #featured-books .card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #3a2a13, #1e1203);
+  box-shadow: 0 4px 20px rgba(255, 183, 0, 0.1);
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+#featured-books .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -160%; /* 👈 بعيد أكتر */
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#featured-books .card:hover::before {
+  left: 160%;
+}
+
+#featured-books .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 200, 50, 0.3);
+}
+
+/* لمعة على زرار الـ featured-books */
+#featured-books .btn-outline-primary {
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: 0.2s;
+    border-color: #ff8c00;
+    color: #ff8c00;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#featured-books .btn-outline-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#featured-books .btn-outline-primary:hover::before {
+    left: 130%;
+}
+
+#featured-books .btn-outline-primary:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+    z-index: 1;
+}
+
+  /* صورة الغلاف */
+  #featured-books .card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  /* محتوى الكارت */
+  #featured-books .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  /* عنوان الكتاب */
+  #featured-books .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffc107; /* ذهبي */
+    margin-bottom: 0.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* وصف أو مؤلف */
+  #featured-books .card-text {
+    color: #e0c28b;
+    flex-grow: 1;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* زرار القراءة */
+#featured-books .btn-primary {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    color: #000;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+    padding: 0.5rem 1.75rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    align-self: flex-start;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  
+  #featured-books .btn-primary:hover {
+    background: linear-gradient(45deg, #ffd700, #ff9900);
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
+  }
+  
+  #featured-books .btn-primary:hover::before {
+    left: 130%;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #featured-books .swiper-slide {
+      width: 220px !important;
+    }
+  }
+  
+
+  
+  
+
+    /* === Top Authors Section Styling === */
+    .top-authors-section {
+        background: linear-gradient(135deg, #733706, #bdae98);
+        padding: 60px 20px;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .top-authors-section h2 {
+        font-weight: bold;
+        font-size: 32px;
+        color: var(--primary);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .top-authors-section p {
+        color: var(--muted);
+        margin-bottom: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .authors-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+      
+      .author-card {
+        background: linear-gradient(145deg, #fff1dc, #ffe0b2);
+        padding: 30px 20px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(90, 62, 27, 0.1);
+        transition: all 0.3s ease;
+        width: 250px;
+        text-align: center;
+      }
+      
+      .author-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(90, 62, 27, 0.2);
+      }
+      
+      .author-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+      }
+      
+      .author-card h6 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--text-dark);
+      }
+      
+      .author-card p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      
+      .author-card .stars {
+        color: var(--gold);
+        font-size: 16px;
+        
+      }
+      /* ========= لمعة ذهبيّة على كروت المؤلفين ========= */
+.author-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: linear-gradient(145deg, #fff1dc, #ffe0b2);
+    box-shadow: 0 8px 20px rgba(90, 62, 27, 0.1);
+    color: #5a3e1b; /* لون نص ذهبي داكن */
+  }
+  
+  .author-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .author-card:hover::before {
+    left: 130%;
+  }
+  
+  .author-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(90, 62, 27, 0.3);
+  }
+  
+  /* تأكيد أن النص فوق اللمعة */
+  .author-card h6,
+  .author-card p,
+  .author-card .stars,
+  .author-card img {
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* لمعة خفيفة على الصور عند الهوفر */
+  .author-card:hover img {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    transition: filter 0.3s ease;
+  }
+  
+  /* لون العنوان */
+  .author-card h6 {
+    color: #b8860b; /* ذهبي متوسط */
+    transition: color 0.3s ease;
+  }
+  
+  .author-card:hover h6 {
+    color: #ffd700; /* ذهبي لامع عند الهوفر */
+  }
+  
+  /* اللون العام للنص */
+  .author-card p,
+  .author-card .stars {
+    color: #a67c00;
+  }
+  
+  /* تأثير بسيط للنجوم */
+  .author-card .stars i {
+    transition: color 0.3s ease;
+  }
+  
+  .author-card:hover .stars i {
+    color: #ffdd44;
+  }
+  
+      .testimonials-section {
+      
+        padding: 60px 20px;
+      }
+      
+      .testimonials-section h2 {
+        background: linear-gradient(145deg, #e28b07, #d78c1c);
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      
+      .testimonials-swiper .swiper-slide .card {
+        background: linear-gradient(145deg, #fff1dc, #ffe0b2);
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(90, 62, 27, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .testimonials-swiper .swiper-slide .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(90, 62, 27, 0.2);
+      }
+      
+      .testimonials-swiper .card h6 {
+        color: var(--text-dark);
+        font-weight: bold;
+        font-size: 18px;
+      }
+      
+      .testimonials-swiper .card small {
+        color: var(--muted);
+      }
+      
+      .testimonials-swiper .card p {
+        color: var(--text-dark);
+      }
+      
+      .testimonials-swiper .text-warning {
+        color: var(--gold);
+        font-size: 16px;
+      }
+      /* ===== Testimonials Section ===== */
+#testimonials {
+    background: #fff8e1;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* العنوان والنص */
+  #testimonials h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #b38600; /* ذهبي غامق */
+    margin-bottom: 0.5rem;
+  }
+  
+  #testimonials p {
+    color: #8c6d1f; /* ذهبي فاتح */
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* كروت الشهادات */
+  #testimonials .card {
+    background: linear-gradient(145deg, #fff9e6, #ffe699);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(181, 134, 0, 0.25);
+    color: #4b3b00;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    z-index: 1;
+  }
+  
+
+  /* لمعة الكارد */
+#testimonials .card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+#testimonials .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#testimonials .card:hover::before {
+  left: 130%;
+}
+
+/* رفع الكارد عند hover */
+#testimonials .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(181, 134, 0, 0.45);
+}
+
+/* صور المستخدمين */
+#testimonials .card img {
+  border-radius: 50%;
+  border: 2px solid #b38600;
+}
+
+/* أسماء المستخدمين */
+#testimonials h6 {
+  color: black;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+/* المهنة */
+#testimonials small {
+  color: #a38600;
+  font-style: italic;
+}
+
+/* نص التقييم */
+#testimonials p.mb-3 {
+  font-size: 1rem;
+  color: #5a4500;
+}
+
+/* نجوم التقييم */
+#testimonials .text-warning i {
+  color: #b38600;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+}
+
+/* لمعة الزرار */
+#testimonials .btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#testimonials .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+#testimonials .btn:hover::before {
+  left: 130%;
+}
+
+  #testimonials h2 {
+    color: #000 !important; /* أسود داكن */
+  }
+    /* -------------------------
+   TESTIMONIALS: Gold Hover Effects
+-------------------------- */
+
+/* لمعة الكارت بالكامل */
+.testimonials-swiper .swiper-slide:hover .card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .testimonials-swiper .swiper-slide:hover .card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.4) 20%,
+      rgba(255, 255, 255, 0.1) 40%,
+      transparent 60%
+    );
+    transform: rotate(25deg);
+    animation: shineCard 1.6s linear forwards;
+    pointer-events: none;
+  }
+  
+  @keyframes shineCard {
+    0% {
+      transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(25deg);
+    }
+  }
+  
+  /* لمعة ذهبية على الاسم عند الهوفر */
+  .testimonials-swiper .swiper-slide:hover h6 {
+    background: linear-gradient(90deg, #FFD700, #FFB300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* لمعة ذهبية فقط على النجوم الكاملة */
+  .testimonials-swiper .swiper-slide:hover .text-warning i.fas.fa-star {
+    color: #FFD700 !important;
+    filter: drop-shadow(0 0 2px #ffcc00);
+    transition: 0.3s;
+  }
+  
+  /* لمعة ذهبية جزئية على النجمة النص */
+  .testimonials-swiper .swiper-slide:hover .text-warning i.fas.fa-star-half-alt {
+    background: linear-gradient(to right, #FFD700 50%, rgba(255, 255, 255, 0.2) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FFD700; /* fallback */
+    filter: drop-shadow(0 0 2px #ffcc00);
+    transition: 0.3s;
+  }
+  
+  /* هوفر احترافي لدواير البروفايل */
+  .testimonials-swiper .swiper-slide:hover img.rounded-circle {
+    border: 2px solid #ffcc00;
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* === Upcoming Releases Custom Styling === */
+ /* ========== الكارد الأساسي ========== */
+#upcoming .card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    max-width: 260px;
+    margin: auto;
+    background: linear-gradient(145deg, #3a2a13, #1e1203);
+    box-shadow: 0 4px 20px rgba(255, 183, 0, 0.1);
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+#upcoming .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -160%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#upcoming .card:hover::before {
+    left: 160%;
+}
+
+#upcoming .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 200, 50, 0.3);
+}
+
+/* ========== الصورة داخل الكارد ========== */
+.upcoming-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #3a2a13;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.upcoming-card:hover img {
+    transform: scale(1.02);
+}
+
+/* ========== محتوى الكارد ========== */
+#upcoming .card-body {
+    padding: 15px 18px;
+    text-align: center;
+    color: #e0c28b;
+    position: relative;
+    z-index: 3;
+}
+
+#upcoming .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #ffd700;
+}
+
+#upcoming .card-text {
+    font-size: 13px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+.card .card-text.text-muted {
+    color: #e0c28b !important; /* بيج ذهبي ناعم */
+  }
+  
+/* ========== الزرار + لمعة خاصة ========== */
+.btn-outline-primary {
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    border-color: #ff8c00;
+    color: #ff8c00;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.btn-outline-primary:hover::before {
+    left: 120%;
+}
+
+.btn-outline-primary:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+    z-index: 3;
+}
+
+/* Responsive tweak */
+@media (max-width: 576px) {
+    #upcoming .card {
+        max-width: 90%;
+    }
+
+    #upcoming .card-img-top {
+        height: 150px;
+    }
+}
+
+  
+   /* FAQ */
+   .accordion-button {
+     background-color: white;
+     color: var(--text-dark);
+     font-weight: 600;
+     box-shadow: none;
+     border-radius: 12px;
+     transition: all 0.3s;
+   }
+   
+   .accordion-button:not(.collapsed) {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+     border-color: #ffd700;
+     color: #000;
+    border-color: #ffd700;
+
+     color: white;
+   }
+   
+   .accordion-body {
+     background-color: #f1f5f9;
+     border-radius: 0 0 12px 12px;
+   }
+   
+   /* Footer */
+   .footer {
+     padding-top: 80px;
+     background: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+     animation: gradientMove 12s ease infinite;
+     color: var(--text-light);
+     overflow-x: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+   }
+   
+   .footer a {
+     color: #ccc;
+     font-size: 0.95rem;
+   }
+   
+   .footer a:hover {
+     color: white;
+   }
+   
+   .footer .social-icons a {
+     font-size: 1.2rem;
+     transition: color 0.3s;
+   }
+   
+   .footer .form-control {
+     border: none;
+     border-radius: 0;
+     outline: none;
+     font-size: 0.9rem;
+   }
+   
+   .footer .btn {
+     background: linear-gradient(45deg, #ff9900, #ffd700);
+     border: none;
+     transition: 0.3s;
+   }
+    
+   .footer .btn:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+   }
+
+  #featured-books .btn-primary {
+  background: linear-gradient(45deg, #ff9900, #ffd700);
+  color: #000;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+  padding: 0.5rem 1.75rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  align-self: flex-start;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* شكل الكرت الأساسي */
+.accordion-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* لمعة ذهبية */
+  .accordion-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 215, 0, 0) 0%,
+      rgba(255, 215, 0, 0.4) 50%,
+      rgba(255, 215, 0, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* عند الهوفر اللمعة تمر */
+  .accordion-item:hover::before {
+    left: 130%;
+  }
+  
+  /* هوفر تأثير للكرت */
+  .accordion-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(255, 200, 50, 0.25);
+  }
+  
+  /* لون الأيقونات أسود */
+  .accordion-button i {
+    color: #000 !important;
+  }
+
+  
+   
+   @media (max-width: 767px) {
+     #hero h1 {
+       font-size: 2.25rem;
+     }
+   
+     .navbar-nav {
+       text-align: center;
+     }
+   
+     section {
+       padding: 60px 0;
+     }
+   }

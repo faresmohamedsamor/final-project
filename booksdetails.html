@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Details - EduVerse</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: #000;
+      overflow-x: hidden;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .card {
+      background: #fffbe6;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .btn-gold {
+      background-color: #f1c40f;
+      color: #000;
+      border: none;
+    }
+    .btn-gold:hover {
+      background-color: #ffb300;
+      color: #fff;
+    }
+    .rating i {
+      color: #f1c40f;
+    }
+    .topbar {
+   background:linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+  background-size: 600% 600%;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: gradientMove 15s ease infinite;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topbar .left-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.topbar .logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.topbar .logo i {
+  margin-right: 8px;
+}
+
+.topbar .nav-links a {
+  color: white;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.topbar .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.topbar .nav-links a:hover::after {
+  width: 100%;
+}
+
+.topbar .nav-links a:hover {
+  color: #fffacd; /* ذهبي فاتح عند المرور */
+}
+
+.topbar .login-btn {
+  border: 1px solid white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.topbar .login-btn:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+}
+.footer {
+     padding-top: 80px;
+     background: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+     animation: gradientMove 12s ease infinite;
+     color: var(--text-light);
+     overflow-x: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+   }
+   
+   .footer a {
+     color: #ccc;
+     font-size: 0.95rem;
+   }
+   
+   .footer a:hover {
+     color: white;
+   }
+   
+   .footer .social-icons a {
+     font-size: 1.2rem;
+     transition: color 0.3s;
+   }
+   
+   .footer .form-control {
+     border: none;
+     border-radius: 0;
+     outline: none;
+     font-size: 0.9rem;
+   }
+   
+   .footer .btn {
+     background: linear-gradient(45deg, #ff9900, #ffd700);
+     border: none;
+     transition: 0.3s;
+   }
+    
+   .footer .btn:hover {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border-color: #ffd700;
+    color: #000;
+   }
+   .btn-glow {
+  display: inline-block;
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  background: linear-gradient(145deg, #fff700, #ffcc00);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  margin-right: 12px;
+}
+
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+.btn-glow:hover::before {
+  left: 130%;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px #ffd700, 0 0 40px #ffe600;
+  transform: scale(1.05);
+  color: #000;
+}
+
+
+  </style>
+</head>
+<body>
+  <nav class="topbar navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="logo navbar-brand text-white">
+        <i class="fas fa-book-open me-2"></i>EduVerse
+      </div>
+  
+      <!-- Toggle Button -->
+      <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarLinks">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="books.html"><i class="fas fa-book me-1"></i> Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="favorites.html"><i class="fas fa-heart me-1"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+          </li>
+        </ul>
+  
+        <div class="d-flex" id="userArea">
+          <a href="login.html" class="login-btn">
+            <i class="fas fa-sign-in-alt me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <div class="d-flex flex-wrap gap-3 mb-4 align-items-center">
+      <a href="books.html" class="btn-glow mb-4">
+        <i class="fas fa-arrow-left me-2"></i>Back to All Books
+      </a>
+      
+      <a href="cart.html" class="btn-glow mb-4">
+        <i class="fas fa-shopping-cart me-2"></i> Go to Cart
+      </a>
+      
+    </div>
+  
+    <div id="book-details" class="row g-4"></div>
+  </div>
+  
+    
+  
+  <footer class="footer bg-dark text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row text-center text-md-start">
+  
+        <!-- Contact Info Top -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3"><i class="fas fa-phone-alt me-2"></i> Call Us</h5>
+          <p>+20 109 871 8759</p>
+          <h5 class="mt-4 mb-3"><i class="fas fa-envelope me-2"></i> Make a Quote</h5>
+          <p>EduVerse@gmail.com</p>
+          <h5 class="mt-4 mb-3"><i class="fas fa-clock me-2"></i> Opening Hours</h5>
+          <p>Sunday - Friday: 9AM - 6PM</p>
+        </div>
+  
+        
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3"><i class="fas fa-book-open me-2"></i>EduVerse</h5>
+          <p>Personal online education and digital library service. Browse, save, and experience knowledge like never before.</p>
+          <div class="social-icons mt-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+  
+        <!-- Support -->
+        <div class="col-md-2 mb-4">
+          <h5 class="mb-3"><i class="fas fa-headset me-2"></i> Support</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-info-circle me-2"></i><a href="#" class="text-white text-decoration-none">User Help</a></li>
+            <li><i class="fas fa-clock me-2"></i><a href="#" class="text-white text-decoration-none">Opening Hours</a></li>
+            <li><i class="fas fa-headset me-2"></i><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
+            <li><i class="fas fa-undo me-2"></i><a href="#" class="text-white text-decoration-none">Return Policy</a></li>
+          </ul>
+          
+        </div>
+  
+        <!-- Services -->
+        <div class="col-md-2 mb-4">
+          <h5><i class="fas fa-concierge-bell me-2"></i> Our Services</h5>
+          <li><i class="fas fa-map-marked-alt me-2"></i> Top Areas</li>
+          <li><i class="fas fa-bolt me-2"></i> New Releases</li>
+          <li><i class="fas fa-money-bill me-2"></i> Service Charges</li>
+          <li><i class="fas fa-shield-alt me-2"></i> Privacy Policy</li>
+          
+        </div>
+  
+        <!-- Newsletter -->
+        <div class="col-md-2 mb-4">
+          <h5 class="mb-3"><i class="fas fa-newspaper me-2"></i> Newsletter</h5>
+          <p>Subscribe for the latest updates and offers.</p>
+          <form>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Email Address">
+              <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Bottom Bar -->
+      <div class="text-center border-top pt-3 mt-4">
+        <small>&copy; 2025 EduVerse. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookId = parseInt(urlParams.get("id"));
+
+    async function fetchBookData() {
+      try {
+        const res = await fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json");
+        const data = await res.json();
+        const book = data.books.find(b => b.id === bookId);
+        renderBook(book);
+      } catch (error) {
+        console.error("❌ Error loading book:", error);
+      }
+    }
+
+    
+    function renderBook(book) {
+  const bookDetailsDiv = document.getElementById("book-details");
+  bookDetailsDiv.innerHTML = `
+    <div class="row g-4 align-items-start">
+      <div class="col-md-4">
+        <img src="${book.coverImage || 'https://via.placeholder.com/400x600'}" alt="${book.title}" class="img-fluid rounded shadow" />
+      </div>
+      <div class="col-md-8">
+   <h2 class="mb-3">
+  <i class="fas fa-book text-dark me-2"></i>${book.title}
+</h2>
+
+<p><i class="fas fa-user text-dark me-2"></i><strong>Author:</strong> ${book.author}</p>
+<p><i class="fas fa-barcode text-dark me-2"></i><strong>ISBN:</strong> ${book.isbn || "N/A"}</p>
+<p><i class="fas fa-tags text-dark me-2"></i><strong>Category:</strong> ${book.category} - ${book.subcategory || "N/A"}</p>
+<p><i class="fas fa-language text-dark me-2"></i><strong>Language:</strong> ${book.language || "N/A"}</p>
+<p><i class="fas fa-file-alt text-dark me-2"></i><strong>Pages:</strong> ${book.pages || "N/A"}</p>
+<p><i class="fas fa-building text-dark me-2"></i><strong>Publisher:</strong> ${book.publisher || "N/A"}</p>
+<p><i class="fas fa-calendar-alt text-dark me-2"></i><strong>Publication Year:</strong> ${book.publicationYear || "N/A"}</p>
+<p><i class="fas fa-file text-dark me-2"></i><strong>Format:</strong> ${book.format || "N/A"}</p>
+<p><i class="fas fa-database text-dark me-2"></i><strong>File Size:</strong> ${book.fileSize || "N/A"}</p>
+<p><i class="fas fa-download text-dark me-2"></i><strong>Downloads:</strong> ${book.downloads || 0}</p>
+<p><i class="fas fa-check-circle text-dark me-2"></i><strong>Available:</strong> ${book.available ? "Yes" : "No"}</p>
+<p><i class="fas fa-id-card text-dark me-2"></i><strong>Librarian ID:</strong> ${book.librarianId || "N/A"}</p>
+<p><i class="fas fa-hashtag text-dark me-2"></i><strong>Tags:</strong> ${book.tags?.join(", ") || "N/A"}</p>
+<p><i class="fas fa-star text-dark me-2"></i><strong>Rating:</strong> ${book.rating || "No rating yet"} </p>
+<hr />
+<p><i class="fas fa-align-left text-dark me-2"></i><strong>Description:</strong> ${book.description}</p>
+
+
+        ${book.serviceName ? `
+          <hr />
+          <h5 class="mt-4">📦 Delivery Service</h5>
+          <p><strong>Service Name:</strong> ${book.serviceName}</p>
+          <p><strong>Short Description:</strong> ${book.shortDescription || "N/A"}</p>
+          <p><strong>Estimated Delivery Time:</strong> ${book.estimatedDeliveryTime || "N/A"}</p>
+          <p><strong>Price:</strong> ${book.price ? `$${book.price}` : "Free"}</p>
+        ` : ''}
+
+        <button class="btn-glow mt-3" onclick="addToCart(${book.id})">
+          <i class="fas fa-cart-plus me-1"></i> Add to Cart
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+
+
+
+     
+    
+
+    function addToCart(id) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (!cart.includes(id)) {
+        cart.push(id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("✅ Book added to cart!");
+      } else {
+        alert("⚠️ Book is already in cart.");
+      }
+    }
+
+    fetchBookData();
+    function showToast(message, success = true) {
+  const toastEl = document.getElementById("toast");
+  document.getElementById("toast-body").innerText = message;
+  toastEl.classList.remove("text-bg-success", "text-bg-danger");
+  toastEl.classList.add(success ? "text-bg-success" : "text-bg-danger");
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+}
+
+function addToCart(id) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (!cart.includes(id)) {
+    cart.push(id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showToast("✅ Book added to cart!");
+  } else {
+    showToast("⚠️ Book already in cart.", false);
+  }
+}
+
+  </script>
+  <!-- أضف Bootstrap Toast HTML أسفل body -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+  <div id="toast" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toast-body">تم الإضافة للسلة بنجاح!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+<!-- Popper.js (ضروري للـ Bootstrap) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script>
+  const userArea = document.getElementById('userArea');
+  const userData = localStorage.getItem('loggedUser'); // ← عدّلنا هنا
+
+  if (userData) {
+    const user = JSON.parse(userData);
+    userArea.innerHTML = `
+      <span style="color: white; font-weight: bold;">
+        <i class="fas fa-user me-1"></i>${user.name}
+      </span>
+      <button class="login-btn ms-2" onclick="logoutUser()" style="background: none; border: 1px solid white;">
+        <i class="fas fa-sign-out-alt me-1"></i>Logout
+      </button>
+    `;
+  }
+
+  function logoutUser() {
+    localStorage.removeItem('loggedUser'); // ← وعدّلنا هنا
+    location.reload();
+  }
+</script>
+
+
+</body>
+</html>

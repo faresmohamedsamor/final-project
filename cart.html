@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - EduVerse</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: #000;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .topbar {
+    background:linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+   background-size: 600% 600%;
+   color: white;
+   padding: 15px 40px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   animation: gradientMove 15s ease infinite;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ 
+ .topbar .left-side {
+   display: flex;
+   align-items: center;
+   gap: 30px;
+ }
+ 
+ .topbar .logo {
+   font-weight: 700;
+   font-size: 20px;
+   color: white;
+   display: flex;
+   align-items: center;
+ }
+ 
+ .topbar .logo i {
+   margin-right: 8px;
+ }
+ 
+ .topbar .nav-links a {
+   color: white;
+   margin: 0 8px;
+   text-decoration: none;
+   font-weight: 600;
+   position: relative;
+   transition: color 0.3s ease;
+ }
+ 
+ .topbar .nav-links a::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: -4px;
+   width: 0%;
+   height: 2px;
+   background-color: white;
+   transition: width 0.3s ease;
+ }
+ 
+ .topbar .nav-links a:hover::after {
+   width: 100%;
+ }
+ 
+ .topbar .nav-links a:hover {
+   color: #fffacd; /* ذهبي فاتح عند المرور */
+ }
+ 
+ .topbar .login-btn {
+   border: 1px solid white;
+   padding: 6px 14px;
+   border-radius: 6px;
+   font-size: 14px;
+   color: white;
+   text-decoration: none;
+   font-weight: 600;
+   transition: all 0.3s ease;
+   box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+   position: relative;
+   overflow: hidden;
+ }
+ 
+ 
+ .topbar .login-btn:hover {
+     background: linear-gradient(45deg, #ff9900, #ffd700);
+     border-color: #ffd700;
+     color: #000;
+ }
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.card {
+  background: #281a18;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  padding: 15px;
+  color: #ffd700;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 400px;
+  max-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hover effect + glow flash */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.05);
+  transform: rotate(45deg);
+  transition: 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 24px rgba(255, 215, 0, 0.3);
+}
+
+.card:hover::before {
+  animation: shineFlash 0.25s ease-out forwards;
+}
+
+@keyframes shineFlash {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateX(0%) rotate(45deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+
+    .card h5,
+    .card p {
+      color: #ffd700;
+    }
+
+    .btn-glow {
+      display: inline-block;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(145deg, #fff700, #ffcc00);
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 0 20px #ffd700, 0 0 40px #ffe600;
+      transform: scale(1.05);
+      color: #000;
+    }
+
+    .remove-btn {
+      background-color: #c0392b;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .remove-btn:hover {
+      background-color: #992d22;
+    }
+
+    .cart-actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .cart-actions .btn {
+      min-width: 180px;
+    }
+    .card img {
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 10px;
+}
+.custom-alert-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1055;
+  max-width: 350px;
+}
+
+.custom-alert-container .alert-gold {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #000;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideInRight 0.6s ease;
+}
+
+.custom-alert-container .alert-gold .btn-close {
+  filter: brightness(0);
+  opacity: 0.7;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+    .footer {
+    padding-top: 80px;
+    background: linear-gradient(270deg, #4e342e, #f1c40f, #ffb300, #4e342e);
+    animation: gradientMove 12s ease infinite;
+    color: var(--text-light);
+    overflow-x: hidden;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       
+  }
+  
+  .footer a {
+    color: #ccc;
+    font-size: 0.95rem;
+  }
+  
+  .footer a:hover {
+    color: white;
+  }
+  
+  .footer .social-icons a {
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .footer .form-control {
+    border: none;
+    border-radius: 0;
+    outline: none;
+    font-size: 0.9rem;
+  }
+  
+  .footer .btn {
+    background: linear-gradient(45deg, #ff9900, #ffd700);
+    border: none;
+    transition: 0.3s;
+  }
+   
+  .footer .btn:hover {
+   background: linear-gradient(45deg, #ff9900, #ffd700);
+   border-color: #ffd700;
+   color: #000;
+  }
+  .alert-gold {
+  background: linear-gradient(135deg, #ffd700, #ffcc00);
+  color: #000;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+.custom-alert-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1055;
+  max-width: 300px;
+}
+
+.custom-alert-container .alert {
+  margin-bottom: 10px;
+  animation: slideInRight 0.6s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+  </style>
+</head>
+<body style="font-family: 'Manrope', sans-serif" class="bg-black text-light">
+  <nav class="topbar navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="logo navbar-brand text-white">
+        <i class="fas fa-book-open me-2"></i>EduVerse
+      </div>
+  
+      <!-- Toggle Button -->
+      <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarLinks">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="books.html"><i class="fas fa-book me-1"></i> Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="favorites.html"><i class="fas fa-heart me-1"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+          </li>
+        </ul>
+  
+        <div class="d-flex" id="userArea">
+          <a href="login.html" class="login-btn">
+            <i class="fas fa-sign-in-alt me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+      
+
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <h2 class="text-black">
+        <i class="fas fa-shopping-cart me-2 text-black"></i>
+        Your Cart
+      </h2>
+      
+    <a href="books.html" class="btn-glow"><i class="fas fa-book-open me-1"></i> Browse More</a>
+  </div>
+
+  <div id="cart-items" class="row gy-4"></div>
+
+  <div id="empty-message" class="text-center text-muted mt-5" style="display: none;">
+    <h4><i class="fas fa-info-circle me-2"></i>No books in your cart yet.</h4>
+  </div>
+
+  <!-- Cart Action Buttons -->
+  <div class="cart-actions" id="cart-buttons" style="display: none;">
+    <button class="btn-glow" onclick="clearCart()">
+      <i class="fas fa-trash-alt me-2"></i> Clear Cart
+    </button>
+  
+    <button class="btn-glow" onclick="confirmPurchase()">
+      <i class="fas fa-check-circle me-2"></i> Confirm 
+    </button>
+  
+    <!-- واحد بس هنا -->
+   
+  </div>
+  
+  
+
+</div>
+<footer class="footer bg-dark text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row text-center text-md-start">
+  
+        <!-- Contact Info Top -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3"><i class="fas fa-phone-alt me-2"></i> Call Us</h5>
+          <p>+20 109 871 8759</p>
+          <h5 class="mt-4 mb-3"><i class="fas fa-envelope me-2"></i> Make a Quote</h5>
+          <p>EduVerse@gmail.com</p>
+          <h5 class="mt-4 mb-3"><i class="fas fa-clock me-2"></i> Opening Hours</h5>
+          <p>Sunday - Friday: 9AM - 6PM</p>
+        </div>
+  
+        
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3"><i class="fas fa-book-open me-2"></i>EduVerse</h5>
+          <p>Personal online education and digital library service. Browse, save, and experience knowledge like never before.</p>
+          <div class="social-icons mt-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+  
+        <!-- Support -->
+        <div class="col-md-2 mb-4">
+          <h5 class="mb-3"><i class="fas fa-headset me-2"></i> Support</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-info-circle me-2"></i><a href="#" class="text-white text-decoration-none">User Help</a></li>
+            <li><i class="fas fa-clock me-2"></i><a href="#" class="text-white text-decoration-none">Opening Hours</a></li>
+            <li><i class="fas fa-headset me-2"></i><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
+            <li><i class="fas fa-undo me-2"></i><a href="#" class="text-white text-decoration-none">Return Policy</a></li>
+          </ul>
+          
+        </div>
+  
+        <!-- Services -->
+        <div class="col-md-2 mb-4">
+          <h5><i class="fas fa-concierge-bell me-2"></i> Our Services</h5>
+          <li><i class="fas fa-map-marked-alt me-2"></i> Top Areas</li>
+          <li><i class="fas fa-bolt me-2"></i> New Releases</li>
+          <li><i class="fas fa-money-bill me-2"></i> Service Charges</li>
+          <li><i class="fas fa-shield-alt me-2"></i> Privacy Policy</li>
+          
+        </div>
+  
+        <!-- Newsletter -->
+        <div class="col-md-2 mb-4">
+          <h5 class="mb-3"><i class="fas fa-newspaper me-2"></i> Newsletter</h5>
+          <p>Subscribe for the latest updates and offers.</p>
+          <form>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Email Address">
+              <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Bottom Bar -->
+      <div class="text-center border-top pt-3 mt-4">
+        <small>&copy; 2025 EduVerse. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+  
+<script>
+  async function loadCart() {
+    const res = await fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json");
+    const data = await res.json();
+    const books = data.books;
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cart-items");
+    const emptyMessage = document.getElementById("empty-message");
+    const buttonsContainer = document.getElementById("cart-buttons");
+
+    if (cart.length === 0) {
+      emptyMessage.style.display = "block";
+      buttonsContainer.style.display = "none";
+      return;
+    }
+
+    buttonsContainer.style.display = "flex";
+
+    books
+      .filter(book => cart.includes(book.id))
+      .forEach(book => {
+        const col = document.createElement("div");
+        col.className = "col-sm-6 col-md-4 col-lg-3";
+        col.innerHTML = `
+          <div class="card h-100">
+            <img src="${book.coverImage || 'https://via.placeholder.com/300x400'}" class="img-fluid rounded mb-3" alt="${book.title}">
+            <h5><i class="fas fa-book me-2"></i>${book.title}</h5>
+            <p><i class="fas fa-user me-2"></i>${book.author}</p>
+            <p><i class="fas fa-tags me-2"></i>${book.category}</p>
+            <p><i class="fas fa-calendar me-2"></i> ${book.publicationYear}</p>
+            <button class="btn-glow" onclick="removeFromCart(${book.id})">
+              <i class="fas fa-trash-alt me-1"></i> Remove
+            </button>
+          </div>
+        `;
+        container.appendChild(col);
+      });
+  }
+
+  function removeFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = cart.filter(bookId => bookId !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+  }
+
+  function clearCart() {
+  localStorage.removeItem("cart");
+  showCustomAlert("danger", "Cart cleared successfully!");
+  location.reload();
+}
+
+ 
+
+function confirmPurchase() {
+  localStorage.removeItem("cart");
+  showCustomAlert("success", "Purchase confirmed! Thank you.");
+  location.reload();
+}
+
+
+  loadCart();
+  function showCustomAlert(type, message) {
+  const alertContainer = document.getElementById("alert-container");
+  const icon = {
+    success: '<i class="fas fa-check-circle me-2"></i>',
+    danger: '<i class="fas fa-exclamation-triangle me-2"></i>',
+    info: '<i class="fas fa-info-circle me-2"></i>'
+  };
+
+  const bg = {
+    success: "#d4af37",
+    danger: "#c0392b",
+    info: "#2980b9"
+  };
+
+  const textColor = type === "danger" ? "#fff" : "#000";
+
+  const alert = document.createElement("div");
+  alert.className = "custom-alert fade-alert";
+  alert.style.background = bg[type];
+  alert.style.color = textColor;
+  alert.innerHTML = `
+    ${icon[type] || ""} ${message}
+    <button class="btn-close position-absolute top-0 end-0 m-2" onclick="this.parentElement.remove()"></button>
+  `;
+
+  alertContainer.appendChild(alert);
+
+  setTimeout(() => {
+    alert.remove();
+  }, 4000);
+}
+
+
+
+</script>
+<script>
+ function showCustomAlert(message, type = 'success') {
+  const alertContainer = document.getElementById("alert-container");
+  if (!alertContainer) return;
+
+  const alert = document.createElement("div");
+  alert.className = `alert alert-gold alert-dismissible fade show`;
+  alert.role = "alert";
+
+  const icon = type === 'success' ? '<i class="fas fa-check-circle me-2"></i>' : '<i class="fas fa-exclamation-triangle me-2"></i>';
+
+  alert.innerHTML = `
+    <div>${icon} <strong>${message}</strong></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  `;
+
+  alertContainer.innerHTML = ''; // امسح القديم
+  alertContainer.appendChild(alert);
+
+  setTimeout(() => {
+    alert.classList.remove('show');
+    alert.classList.add('hide');
+    alert.addEventListener('transitionend', () => alert.remove());
+  }, 5000);
+}
+
+  
+function clearCart() {
+  localStorage.removeItem("cart");
+  showCustomAlert("Cart cleared successfully!", "warning");
+  setTimeout(() => location.reload(), 1500);
+}
+
+function confirmPurchase() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart.length === 0) {
+    showCustomAlert("Your cart is empty!", "warning");
+    return;
+  }
+
+  localStorage.removeItem("cart");
+  showCustomAlert("Purchase confirmed! Thank you.", "success");
+  setTimeout(() => location.reload(), 2000);
+}
+
+  </script>
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<div id="alert-container" class="custom-alert-container"></div>
+<script>
+    const userArea = document.getElementById('userArea');
+    const userData = localStorage.getItem('loggedUser'); // ← عدّلنا هنا
+  
+    if (userData) {
+      const user = JSON.parse(userData);
+      userArea.innerHTML = `
+        <span style="color: white; font-weight: bold;">
+          <i class="fas fa-user me-1"></i>${user.name}
+        </span>
+        <button class="login-btn ms-2" onclick="logoutUser()" style="background: none; border: 1px solid white;">
+          <i class="fas fa-sign-out-alt me-1"></i>Logout
+        </button>
+      `;
+    }
+  
+    function logoutUser() {
+      localStorage.removeItem('loggedUser'); // ← وعدّلنا هنا
+      location.reload();
+    }
+  </script>
+  
+</body>
+</html>
+

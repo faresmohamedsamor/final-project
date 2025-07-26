@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduVerse | Books</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Swiper CSS -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="stylebooks.css" rel="stylesheet">
+
+<!-- sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
+  
+<body style="font-family: 'Manrope', sans-serif" class="bg-black text-light">
+  <nav class="topbar navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="logo navbar-brand text-white">
+        <i class="fas fa-book-open me-2"></i>EduVerse
+      </div>
+  
+      <!-- Toggle Button -->
+      <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarLinks">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="books.html"><i class="fas fa-book me-1"></i> Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="favorites.html"><i class="fas fa-heart me-1"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+          </li>
+        </ul>
+  
+        <div class="d-flex" id="userArea">
+          <a href="login.html" class="login-btn">
+            <i class="fas fa-sign-in-alt me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  
+
+      <section class="py-5 text-center text-light">
+        <div class="container">
+          <h1 class="display-5 fw-bold" data-aos="fade-up" data-aos-delay="100">Explore Our Book Collection</h1>
+          <p class="lead" data-aos="fade-up" data-aos-delay="200">Browse educational books in all categories.</p>
+          
+          <div class="row justify-content-center mt-4">
+            <div class="col-md-6 mb-3 position-relative" data-aos="fade-right" data-aos-delay="300">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="searchInput" class="form-control form-control-lg border-warning bg-dark text-light ps-5" placeholder="Search by title or author..." />
+            </div>
+      
+            <div class="col-md-4" data-aos="fade-left" data-aos-delay="400">
+              <select id="categoryFilter" class="form-select form-select-lg border-warning bg-dark text-light">
+                <option value="all">All Categories</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="booksContainer">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="booksContainer"></div>
+
+        </div>
+    </section>
+  
+    
+
+    <section class="py-5 text-center text-light">
+        <div class="container text-center">
+          <h2 class="fw-bold mb-2 text-black" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-star me-2 text-black"></i>Books Tailored for You
+          </h2>
+          <p class="mb-4" style="color: black;" data-aos="fade-up" data-aos-delay="200">
+            Answer this short quiz to get personalized book recommendations!
+          </p>
+          
+      
+          <!-- Quiz Form -->
+          <form id="quizForm" class="mb-4">
+            <div class="row g-3 justify-content-center">
+              <div class="col-md-4" data-aos="fade-right" data-aos-delay="300">
+                <label class="form-label">What type of books do you prefer?</label>
+                <select class="form-select form-select-lg border-warning bg-dark text-light" required>
+                  <option value="">Choose...</option>
+                  <option value="fiction">Psychology</option>
+                  <option value="non-fiction">History</option>
+                  <option value="self-help">Business</option>
+                  <option value="science">Science</option>
+                </select>
+              </div>
+              <div class="col-md-4" data-aos="fade-left" data-aos-delay="400">
+                <label class="form-label">What's your reading level?</label>
+                <select class="form-select form-select-lg border-warning bg-dark text-light" required>
+                  <option value="">Choose...</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </div>
+              <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                <button type="submit" class="btn btn-warning mt-3  " disabled>Submit</button>
+              </div>
+              
+            </div>
+          </form>
+      
+          <!-- Loading message -->
+          <div id="loading" class="text-warning mb-3" style="display: none;">Loading your books...</div>
+      
+          <!-- Recommended Books Container -->
+          <div class="row" id="recommendedBooks"></div>
+        </div>
+      </section>
+      
+      
+      <section class="top-authors-section" id="our-authors">
+        <div class="container position-relative">
+          <h2 data-aos="fade-up">
+            <i class="fas fa-pen-nib me-2"></i> Our Authors
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="100">Meet the brilliant minds behind our library</p>
+      
+          <!-- Swiper Container -->
+          <div class="swiper myAuthorsSwiper" data-aos="fade-up" data-aos-delay="200">
+            <div class="swiper-wrapper" id="authors-swiper-wrapper">
+              <!-- المؤلفين من API -->
+            </div>
+      
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next custom-swiper-btn"></div>
+            <div class="swiper-button-prev custom-swiper-btn"></div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Swiper.js CDN -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+      
+      <!-- Swiper Styles -->
+      <style>
+        .custom-swiper-btn {
+          color: #000;
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+        }
+      
+        .custom-swiper-btn:hover {
+          background: #ffd700;
+          color: #fff;
+          transform: scale(1.1);
+          box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+        }
+      
+        .swiper-button-next, .swiper-button-prev {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 18px;
+          font-weight: bold;
+        }
+      
+        .author-card {
+          background: rgba(255, 255, 255, 0.7);
+          border-radius: 12px;
+          padding: 20px;
+          text-align: center;
+          transition: 0.3s ease;
+          box-shadow: 0 0 12px rgba(0,0,0,0.05);
+        }
+      
+        .author-card img {
+  width: 100px;
+  height: 100px;        
+  object-fit: cover;     
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+      
+        .author-card h6,
+        .author-card p,
+        .author-card i {
+          color: #000;
+        }
+      
+        .author-card:hover {
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+          transform: translateY(-5px);
+        }
+      </style>
+      
+      <!-- Swiper Script -->
+      <script>
+        fetch('https://edu-me01.github.io/Json-Data/Digital-Library.json')
+          .then(res => res.json())
+          .then(data => {
+            const authors = [...new Set(data.books.map(book => book.author).filter(Boolean))].slice(0, 12);
+            const wrapper = document.getElementById('authors-swiper-wrapper');
+      
+            const authorImages = [
+              "https://randomuser.me/api/portraits/men/10.jpg",
+              "https://randomuser.me/api/portraits/men/11.jpg",
+              "https://randomuser.me/api/portraits/men/12.jpg",
+              "https://randomuser.me/api/portraits/men/13.jpg",
+              "https://randomuser.me/api/portraits/men/14.jpg",
+              "https://randomuser.me/api/portraits/men/15.jpg",
+              "https://randomuser.me/api/portraits/men/16.jpg",
+              "https://randomuser.me/api/portraits/men/50.jpg",
+              "https://randomuser.me/api/portraits/men/60.jpg",
+              "https://randomuser.me/api/portraits/men/70.jpg",
+              "https://randomuser.me/api/portraits/men/80.jpg",
+              "https://randomuser.me/api/portraits/men/99.jpg"
+            ];
+      
+            authors.forEach((author, index) => {
+              const imgUrl = authorImages[index % authorImages.length];
+              const slide = `
+                <div class="swiper-slide">
+                  <div class="author-card">
+                    <img src="${imgUrl}" alt="${author}" />
+                    <h6>${author}</h6>
+                    <p>Author & Contributor</p>
+                    <div class="stars">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star-half-alt text-warning"></i>
+                      <i class="far fa-star text-warning"></i>
+                    </div>
+                  </div>
+                </div>
+              `;
+              wrapper.innerHTML += slide;
+            });
+      
+            new Swiper(".myAuthorsSwiper", {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              loop: true,
+              autoplay: {
+                delay: 3000,
+              },
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              breakpoints: {
+                576: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                992: { slidesPerView: 4 },
+              }
+            });
+          });
+      </script>
+      <!-- Book Wisdom Section -->
+<section id="book-wisdom" class="py-5 position-relative text-center">
+  <!-- Canvas (تم إزالته أو تعطيله هنا) -->
+  <!-- <canvas id="bookshelf-bg" class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0;"></canvas> -->
+
+  <div class="container position-relative" style="z-index: 2;">
+    <h2 class="mb-3 fw-bold" data-aos="fade-up" style="color: #000;">
+      <i class="fas fa-quote-left me-2 text-black"></i> Book Wisdom
+    </h2>
+    <p class="lead" id="quote-text" data-aos="fade-up" data-aos-delay="100" style="color: #000;">
+      <!-- سيتم حقنه عشوائياً -->
+    </p>
+    <button onclick="showRandomQuote()" class="btn btn-warning mt-3 px-4 py-2" data-aos="fade-up" data-aos-delay="200">
+      New Quote
+    </button>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  #book-wisdom {
+    background-color: #f8f9fa;
+    overflow: hidden;
+    min-height: 300px;
+  }
+
+  #book-wisdom p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: auto;
+    font-style: italic;
+  }
+</style>
+
+<!-- Scripts -->
+<script>
+  const quotes = [
+    `"A room without books is like a body without a soul." — Cicero`,
+    `"Books are a uniquely portable magic." — Stephen King`,
+    `"Reading gives us someplace to go when we have to stay where we are." — Mason Cooley`,
+    `"So many books, so little time." — Frank Zappa`,
+    `"A reader lives a thousand lives before he dies." — George R.R. Martin`,
+    `"Books wash away from the soul the dust of everyday life." — Picasso`,
+    `"There is no friend as loyal as a book." — Hemingway`,
+    `"Once you learn to read, you will be forever free." — Frederick Douglass`,
+    `"I have always imagined that Paradise will be a kind of library." — Jorge Luis Borges`,
+    `"Reading is essential for those who seek to rise above the ordinary." — Jim Rohn`,
+    `"The reading of all good books is like a conversation with the finest minds of past centuries." — Descartes`,
+    `"Books are mirrors: you only see in them what you already have inside you." — Carlos Ruiz Zafón`,
+    `"You don’t have to burn books to destroy a culture. Just get people to stop reading them." — Ray Bradbury`
+  ];
+
+  function showRandomQuote() {
+    const quoteText = document.getElementById('quote-text');
+    let newQuote;
+    do {
+      newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    } while (quoteText.innerText === newQuote); // منع التكرار المتتالي
+    quoteText.innerText = newQuote;
+  }
+
+  // عرض اقتباس عشوائي عند التحميل
+  document.addEventListener('DOMContentLoaded', () => {
+    showRandomQuote();
+    setInterval(showRandomQuote, 5000); // كل 5 ثواني
+  });
+</script>
+
+      
+      
+      
+
+    <footer class="footer bg-dark text-white pt-5 pb-3">
+        <div class="container">
+          <div class="row text-center text-md-start">
+      
+            <!-- Contact Info Top -->
+            <div class="col-md-3 mb-4">
+              <h5 class="mb-3"><i class="fas fa-phone-alt me-2"></i> Call Us</h5>
+              <p>+20 109 871 8759</p>
+              <h5 class="mt-4 mb-3"><i class="fas fa-envelope me-2"></i> Make a Quote</h5>
+              <p>EduVerse@gmail.com</p>
+              <h5 class="mt-4 mb-3"><i class="fas fa-clock me-2"></i> Opening Hours</h5>
+              <p>Sunday - Friday: 9AM - 6PM</p>
+            </div>
+      
+            
+            <div class="col-md-3 mb-4">
+              <h5 class="mb-3"><i class="fas fa-book-open me-2"></i>EduVerse</h5>
+              <p>Personal online education and digital library service. Browse, save, and experience knowledge like never before.</p>
+              <div class="social-icons mt-3">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+      
+            <!-- Support -->
+            <div class="col-md-2 mb-4">
+              <h5 class="mb-3"><i class="fas fa-headset me-2"></i> Support</h5>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-info-circle me-2"></i><a href="#" class="text-white text-decoration-none">User Help</a></li>
+                <li><i class="fas fa-clock me-2"></i><a href="#" class="text-white text-decoration-none">Opening Hours</a></li>
+                <li><i class="fas fa-headset me-2"></i><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
+                <li><i class="fas fa-undo me-2"></i><a href="#" class="text-white text-decoration-none">Return Policy</a></li>
+              </ul>
+              
+            </div>
+      
+            <!-- Services -->
+            <div class="col-md-2 mb-4">
+              <h5><i class="fas fa-concierge-bell me-2"></i> Our Services</h5>
+              <li><i class="fas fa-map-marked-alt me-2"></i> Top Areas</li>
+              <li><i class="fas fa-bolt me-2"></i> New Releases</li>
+              <li><i class="fas fa-money-bill me-2"></i> Service Charges</li>
+              <li><i class="fas fa-shield-alt me-2"></i> Privacy Policy</li>
+              
+            </div>
+      
+            <!-- Newsletter -->
+            <div class="col-md-2 mb-4">
+              <h5 class="mb-3"><i class="fas fa-newspaper me-2"></i> Newsletter</h5>
+              <p>Subscribe for the latest updates and offers.</p>
+              <form>
+                <div class="input-group">
+                  <input type="email" class="form-control" placeholder="Email Address">
+                  <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+      
+          <!-- Bottom Bar -->
+          <div class="text-center border-top pt-3 mt-4">
+            <small>&copy; 2025 EduVerse. All rights reserved.</small>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        const booksContainer = document.getElementById("booksContainer");
+        const searchInput = document.getElementById("searchInput");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const languageSelector = document.getElementById("languageSelector");
+        const testimonialsWrapper = document.getElementById("testimonialsWrapper");
+        const highlightedSection = document.getElementById("highlightedBooks");
+
+        let booksData = [];
+
+        // دالة مساعدة لبناء رابط الصورة الصحيح
+        // ستحاول استخدام 'image' أولاً، ثم 'coverImage' إذا لم تكن 'image' موجودة
+        function getBookImageUrl(book) {
+            let imagePath = book.image; // حاول استخدام 'image' أولاً
+
+            // إذا لم يكن حقل 'image' موجودًا أو فارغًا، حاول استخدام 'coverImage'
+            if (!imagePath || imagePath.trim() === "") {
+                imagePath = book.coverImage;
+            }
+
+            if (!imagePath || imagePath.trim() === "") {
+                // لو المسار فاضي أو لا يحتوي على شيء، ارجع صورة بديلة
+                return "https://dummyimage.com/300x250/000/fff&text=No+Image";
+            }
+            // لو المسار بيبدأ بـ http:// أو https://، يبقى هو رابط كامل (جاهز للاستخدام)
+            if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+                return imagePath;
+            }
+            // لو المسار نسبي (مثل "images/book-1.jpg")، بنكمل عليه رابط GitHub Raw
+            return `https://raw.githubusercontent.com/Edu-ME01/Json-Data/main/${imagePath}`;
+        }
+
+        // جلب البيانات من ملف الـ JSON
+        fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then(data => {
+                // التأكد من استخراج مصفوفة الكتب بشكل صحيح
+                booksData = Array.isArray(data) ? data : data.books || [];
+
+                if (!Array.isArray(booksData)) {
+                    console.error("❌ Unexpected API structure: Expected an array or object with 'books' array.", data);
+                    return;
+                }
+
+                // استدعاء الدوال لعرض المحتوى بعد جلب البيانات
+                populateCategories(booksData);
+                renderBooks(booksData);
+                renderHighlightedBooks();
+                renderTestimonials(booksData);
+            })
+            .catch(err => {
+                console.error("❌ Error fetching data:", err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Failed to load books. Please check your internet connection or the data source.',
+                    footer: `<a href="https://edu-me01.github.io/Json-Data/Digital-Library.json" target="_blank">Check JSON Link</a>`
+                });
+            });
+
+        // دالة لملء قائمة الفئات (categories) في الفلتر
+        function populateCategories(data) {
+            if (!categoryFilter) return;
+
+            categoryFilter.innerHTML = '<option value="all">All Categories</option>';
+            const categories = [...new Set(data.map(book => book.category).filter(Boolean))];
+
+            categories.sort().forEach(category => {
+                const option = document.createElement("option");
+                option.value = category.toLowerCase();
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+        function getFavorites() {
+  return JSON.parse(localStorage.getItem('favorites')) || [];
+}
+function isBookInFavorites(bookId) {
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (!user || !user.email) return false;
+
+    const favKey = `favorites_${user.email}`;
+    const favorites = JSON.parse(localStorage.getItem(favKey)) || [];
+
+    return favorites.some(fav => fav.id === bookId);
+}
+
+        // دالة لعرض الكتب في الصفحة
+        function renderBooks(books) {
+    const container = document.getElementById("booksContainer");
+    container.innerHTML = "";
+
+    const favorites = getFavorites(); // جلب المفضلة الحالية
+
+    books.forEach(book => {
+        const isFav = favorites.some(fav => fav.id === book.id); // هل الكتاب في المفضلة؟
+
+        const card = document.createElement("div");
+card.className = "col";
+
+card.innerHTML = `
+  <div class="card book-card h-100 d-flex flex-column shadow-sm">
+    <img src="${getBookImageUrl(book)}" class="card-img-top" alt="${book.title}">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title fw-bold">${book.title}</h5>
+      <p class="card-text">${book.author}</p>
+      <div class="mt-auto d-flex justify-content-between align-items-center gap-2 flex-wrap">
+      <button class="btn btn-outline-light btn-shiny w-100 view-details-btn"
+  data-id="${book.id}">
+  <i class="fas fa-book-open me-1"></i> View Details
+</button>
+
+<button class="btn btn-fav ms-auto add-to-fav ${isBookInFavorites(book.id) ? 'active' : ''}"
+  data-id="${book.id}"
+  data-title="${book.title}"
+  data-author="${book.author}"
+  data-image="${book.image}"
+  data-category="${book.category}"
+  data-price="${book.price || 0}">
+  <i class="fas fa-heart"></i>
+</button>
+
+
+      </div>
+    </div>
+  </div>
+`;
+
+        container.appendChild(card);
+    });
+}
+
+
+
+        // دالة لإنشاء نجوم التقييم
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const half = rating % 1 >= 0.25 && rating % 1 <= 0.75;
+            let starsHtml = "";
+
+            for (let i = 0; i < fullStars; i++) {
+                starsHtml += `<i class="fas fa-star text-warning"></i>`;
+            }
+            if (half) starsHtml += `<i class="fas fa-star-half-alt text-warning"></i>`;
+            const emptyStars = 5 - fullStars - (half ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                starsHtml += `<i class="far fa-star text-warning"></i>`;
+            }
+            return starsHtml;
+        }
+
+        // دالة لتطبيق الفلاتر (البحث والفئات)
+        function applyFilters() {
+            const query = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+
+            const filtered = booksData.filter(book => {
+                const matchesSearch = (book.title && book.title.toLowerCase().includes(query)) || (book.author && book.author.toLowerCase().includes(query));
+                const matchesCategory = selectedCategory === "all" || (book.category && book.category.toLowerCase() === selectedCategory);
+                return matchesSearch && matchesCategory;
+            });
+
+            renderBooks(filtered);
+        }
+
+        // دالة لعرض شهادات المستخدمين
+        function renderTestimonials(data) {
+            if (!testimonialsWrapper) return;
+
+            testimonialsWrapper.innerHTML = "";
+            const testimonials = data.filter(b => b.testimonial);
+
+            testimonials.forEach(item => {
+                const userImageSrc = getBookImageUrl(item); // استخدام نفس الدالة لصور المستخدمين
+
+                testimonialsWrapper.innerHTML += `
+                    <div class="swiper-slide">
+                        <div class="card bg-dark text-light border border-warning rounded-4 p-4 h-100 shadow">
+                                    <div class="d-flex align-items-center mb-3">
+                                <img src="${userImageSrc}" class="rounded-circle me-3" width="50" height="50" alt="${item.user}"
+                                onerror="this.src='https://dummyimage.com/50x50/000/fff&text=User';">
+                                <div>
+                                  <h6 class="mb-0 fw-bold">${item.user}</h6>
+              <small class="text-muted">${item.title}</small>
+                                </div>
+                            </div>
+                            <p class="mb-2 fst-italic">"${item.testimonial}"</p>
+                            <div class="text-warning">${generateStars(item.rating || 0)}</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            if (testimonials.length > 0) {
+                new Swiper(".testimonials-slider", {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    breakpoints: {
+                        768: { slidesPerView: 2 },
+                        992: { slidesPerView: 3 },
+                    },
+                });
+            }
+        }
+
+        // دالة لعرض الكتب المميزة
+        function renderHighlightedBooks() {
+            if (!highlightedSection || booksData.length === 0) return;
+
+            const shuffled = [...booksData].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 4);
+
+            highlightedSection.innerHTML = "";
+
+            selected.forEach(book => {
+                const col = document.createElement("div");
+                col.className = "col-md-6 col-lg-3 mb-4";
+
+                const card = document.createElement("div");
+                card.className = "card h-100 bg-dark text-light border border-warning rounded-3";
+
+                const img = document.createElement("img");
+                img.src = getBookImageUrl(book); // استخدام نفس الدالة هنا
+                img.className = "card-img-top";
+                img.alt = "Book";
+                img.style.height = "220px";
+                img.style.objectFit = "cover";
+                img.onerror = "this.src='https://dummyimage.com/220x180/000/fff&text=Image+Error';";
+
+                const cardBody = `
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title fw-semibold">${book.title}</h6>
+                        <p class="card-text"><i class="fas fa-user text-warning me-1"></i>${book.author}</p>
+                        <a href="details.html?id=${book.id}" class="btn btn-sm btn-warning fw-semibold mt-auto">Start Reading</a>
+                    </div>
+                `;
+
+                card.appendChild(img);
+                card.insertAdjacentHTML("beforeend", cardBody);
+                col.appendChild(card);
+                highlightedSection.appendChild(col);
+            });
+        }
+
+        // إضافة مستمعي الأحداث للبحث والفلترة
+        searchInput.addEventListener("input", applyFilters);
+        categoryFilter.addEventListener("change", applyFilters);
+
+        // وظيفة تبديل اللغة (وظيفية وهمية حالياً)
+        languageSelector?.addEventListener("change", (e) => {
+            const lang = e.target.value;
+            Swal.fire({
+                icon: 'info',
+                title: 'Language Feature',
+                text: `Language switched to: ${lang} (functionality coming soon!)`,
+                timer: 2000,
+                showConfirmButton: false
+            });
+        });
+
+        // إضافة الكتب إلى السلة (Cart)
+        document.addEventListener("click", function (e) {
+            const target = e.target.closest(".add-to-cart");
+            if (target) {
+                const book = {
+                    id: target.dataset.id,
+                    title: target.dataset.title,
+                    image: target.dataset.image, // ستأخذ قيمة من data-image
+                    author: target.dataset.author,
+                    category: target.dataset.category,
+                    price: parseFloat(target.dataset.price) || 0
+                };
+
+                const user = JSON.parse(localStorage.getItem('loggedInUser'));
+                if (!user) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Login Required',
+                        text: 'Please log in to add items to your cart.',
+                        confirmButtonColor: '#3085d6',
+                    });
+                    return;
+                }
+
+                const userCartKey = `cart_${user.email}`;
+                let cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+                const alreadyExists = cart.some(item => item.id === book.id);
+
+                if (alreadyExists) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Already in Cart',
+                        text: `"${book.title}" is already in your cart.`,
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                    return;
+                }
+
+                cart.push(book);
+                localStorage.setItem(userCartKey, JSON.stringify(cart));
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added to Cart',
+                    text: `"${book.title}" has been added to your cart.`,
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            }
+        });
+
+        
+      // لما المستخدم يضغط على زرار القلب
+      document.querySelectorAll('.favorite-btn').forEach(button => {
+        button.addEventListener('click', function () {
+          const user = sessionStorage.getItem('loggedUser');
+    
+          if (!user) {
+            Swal.fire({
+              icon: 'warning',
+              title: 'Login Required',
+              text: 'You must be logged in to add books to your favorites.',
+              background: '#fff8dc',
+              color: '#000',
+              confirmButtonColor: '#f1c40f',
+              confirmButtonText: 'Login Now'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = 'login.html';
+              }
+            });
+            return;
+          }
+    
+          // المستخدم مسجل دخول
+          const card = this.closest('.book-card');
+          const bookData = {
+            title: card.querySelector('.card-title').textContent,
+            image: card.querySelector('img').src,
+            category: card.querySelector('.card-text').textContent
+          };
+    
+          let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+          // منع التكرار
+          const exists = favorites.some(book => book.title === bookData.title);
+          if (!exists) {
+            favorites.push(bookData);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+          }
+    
+          // تحويل المستخدم لصفحة المفضلة
+          window.location.href = 'favorites.html';
+        });
+      });
+    
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".view-details-btn")) {
+      const btn = e.target.closest(".view-details-btn");
+      const bookId = btn.dataset.id;
+      window.location.href = `booksdetails.html?id=${bookId}`;
+    }
+  });
+
+  const recommendedBooksContainer = document.getElementById("recommendedBooks");
+        const quizForm = document.getElementById("quizForm");
+        const selects = quizForm.querySelectorAll("select");
+        const loadingDiv = document.getElementById("loading");
+        const submitBtn = quizForm.querySelector("button[type='submit']");
+       
+      
+        // Enable submit button when all selects are filled
+        selects.forEach(select => {
+          select.addEventListener("change", () => {
+            const allAnswered = Array.from(selects).every(s => s.value !== "");
+            submitBtn.disabled = !allAnswered;
+          });
+        });
+      
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+          return array;
+        }
+      
+        function getBookImageUrl(book) {
+          return book.image || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop" 
+        }
+      
+        function renderRecommendedBooks() {
+          if (!recommendedBooksContainer || !booksData.length) return;
+          recommendedBooksContainer.innerHTML = "";
+          const shuffled = shuffleArray([...booksData]);
+          const selectedBooks = shuffled.slice(0, 3);
+      
+          selectedBooks.forEach((book, index) => {
+            const col = document.createElement("div");
+            col.className = "col-md-4 mb-4";
+            col.setAttribute("data-aos", index % 2 === 0 ? "zoom-in-up" : "zoom-in-down");
+            col.setAttribute("data-aos-delay", `${index * 100}`);
+      
+            col.innerHTML = `
+            <div class="card book-card h-100 d-flex flex-column shadow-sm">
+    <img src="${getBookImageUrl(book)}" class="card-img-top" alt="${book.title}">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title fw-bold">${book.title}</h5>
+      <p class="card-text">${book.author}</p>
+      <div class="mt-auto d-flex justify-content-between align-items-center gap-2 flex-wrap">
+      <button class="btn btn-outline-light btn-shiny w-100 view-details-btn"
+  data-id="${book.id}">
+  <i class="fas fa-book-open me-1"></i> View Details
+</button>
+
+      <button class="btn btn-fav ms-auto add-to-fav ${isBookInFavorites(book.id) ? 'active' : ''}"
+  data-id="${book.id}"
+  data-title="${book.title}"
+  data-author="${book.author}"
+  data-image="${book.image}"
+  data-category="${book.category}"
+  data-price="${book.price || 0}">
+  <i class="fas fa-heart"></i>
+</button>
+
+      </div>
+    </div>
+  </div>
+`;
+
+      
+            recommendedBooksContainer.appendChild(col);
+          });
+          AOS.refresh();
+        }
+      
+        fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+          .then(res => {
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            return res.json();
+          })
+          .then(data => {
+            booksData = Array.isArray(data) ? data : data.books || [];
+            if (!Array.isArray(booksData)) throw new Error("❌ Unexpected API structure");
+            AOS.init();
+          })
+          .catch(err => {
+            console.error("❌ Error fetching data:", err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Failed to load books.',
+              footer: '<a href="https://edu-me01.github.io/Json-Data/Digital-Library.json" target="_blank">Check JSON Link</a>'
+            });
+          });
+      
+        quizForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          loadingDiv.style.display = "block";
+          setTimeout(() => {
+            loadingDiv.style.display = "none";
+            renderRecommendedBooks();
+          }, 700);
+        });
+        
+  const counters = document.querySelectorAll(".count");
+  counters.forEach(counter => {
+    counter.innerText = "0";
+    const updateCount = () => {
+      const target = +counter.getAttribute("data-target");
+      const count = +counter.innerText;
+      const speed = 10;
+      const increment = Math.ceil(target / 80);
+
+      if (count < target) {
+        counter.innerText = count + increment;
+        setTimeout(updateCount, speed);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+
+
+    </script>
+      <!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  const userArea = document.getElementById('userArea');
+  const userData = localStorage.getItem('loggedUser'); // ← عدّلنا هنا
+
+  if (userData) {
+    const user = JSON.parse(userData);
+    userArea.innerHTML = `
+      <span style="color: white; font-weight: bold;">
+        <i class="fas fa-user me-1"></i>${user.name}
+      </span>
+      <button class="login-btn ms-2" onclick="logoutUser()" style="background: none; border: 1px solid white;">
+        <i class="fas fa-sign-out-alt me-1"></i>Logout
+      </button>
+    `;
+  }
+
+  function logoutUser() {
+    localStorage.removeItem('loggedUser'); // ← وعدّلنا هنا
+    location.reload();
+  }
+  
+
+  document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".add-to-fav");
+  if (!btn) return;
+
+  const bookData = {
+    id: btn.dataset.id,
+    title: btn.dataset.title,
+    author: btn.dataset.author,
+    image: btn.dataset.image,
+    category: btn.dataset.category,
+    price: btn.dataset.price,
+  };
+
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  const exists = favorites.some(fav => fav.id === bookData.id);
+
+  if (!exists) {
+    favorites.push(bookData);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    Swal.fire({
+      icon: "success",
+      title: "Added to Favorites",
+      text: "This book has been added successfully!",
+      background: "#fff8dc",
+      color: "#000",
+      confirmButtonText: "Nice!",
+    });
+  } else {
+    Swal.fire({
+      icon: "info",
+      title: "Already in Favorites",
+      text: "This book is already in your favorites list.",
+      background: "#fff8dc",
+      color: "#000",
+      confirmButtonText: "OK",
+    });
+  }
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

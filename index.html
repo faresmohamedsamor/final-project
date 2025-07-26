@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVerse - Digital Library</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet">
+  <!-- sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <nav class="topbar navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="logo navbar-brand text-white">
+        <i class="fas fa-book-open me-2"></i>EduVerse
+      </div>
+  
+      <!-- Toggle Button -->
+      <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarLinks">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="books.html"><i class="fas fa-book me-1"></i> Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="favorites.html"><i class="fas fa-heart me-1"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+          </li>
+        </ul>
+  
+        <div class="d-flex" id="userArea">
+          <a href="login.html" class="login-btn">
+            <i class="fas fa-sign-in-alt me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  
+  
+
+  <!-- Hero Section -->
+  <section class="py-5 bg-light" id="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6" data-aos="fade-right">
+          <h1 class="display-5 fw-bold mb-3">Explore Thousands of Books at EduVerse</h1>
+          <p class="lead mb-4">Your digital gateway to knowledge, learning, and discovery. Start your reading journey today.</p>
+          <a href="books.html" class="btn btn-primary px-4 py-2"><i class="fas fa-book-open me-2"></i> Browse Books</a>
+        </div>
+        <div class="col-md-6 text-center" data-aos="fade-left">
+
+              <img width="1078" height="1189" src="https://eduverse.ae/hc/assets/img/eduverse/hero-img.png" alt="Hero Image" class="img-fluid show-mobile">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="categories" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-dark">
+          <h2 class="fw-bold text-dark">
+            <i class="fas fa-layer-group me-2" style="color: black;"></i> Explore by Category
+          </h2>
+          
+        </h2>
+        
+        <p class="text-muted">Find books by field of interest</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+  
+        <div class="col-6 col-md-4 col-lg-2 text-center">
+          <a href="books.html" class="text-decoration-none text-dark">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+              <i class="fas fa-laptop-code fa-2x text-primary mb-3"></i>
+              <h6 class="mb-0">Programming</h6>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-6 col-md-4 col-lg-2 text-center">
+          <a href="books.html" class="text-decoration-none text-dark">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+              <i class="fas fa-flask fa-2x text-primary mb-3"></i>
+              <h6 class="mb-0">Science</h6>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-6 col-md-4 col-lg-2 text-center">
+          <a href="books.html" class="text-decoration-none text-dark">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+              <i class="fas fa-brain fa-2x text-primary mb-3"></i>
+              <h6 class="mb-0">Psychology</h6>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-6 col-md-4 col-lg-2 text-center">
+          <a href="books.html" class="text-decoration-none text-dark">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+              <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+              <h6 class="mb-0">Business</h6>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-6 col-md-4 col-lg-2 text-center">
+          <a href="books.html" class="text-decoration-none text-dark">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+              <i class="fas fa-landmark fa-2x text-primary mb-3"></i>
+              <h6 class="mb-0">History</h6>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-6 col-md-4 col-lg-2 text-center">
+          <a href="books.html" class="text-decoration-none text-dark">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+              <i class="fas fa-language fa-2x text-primary mb-3"></i>
+              <h6 class="mb-0">Languages</h6>
+            </div>
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <section id="featured-books" class="py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+      <h2 class="mb-2 fw-bold text-primary text-center">
+        <i class="fas fa-star me-2"></i> Featured Books
+      </h2>
+      <p class="text-muted mb-4 text-center" style="margin-top: -6px; font-size: 1.05rem;">
+        Books that inspired thousands—now it’s your turn.
+      </p>
+  
+      <div class="position-relative">
+        <div class="swiper featuredSwiper">
+          <div class="swiper-wrapper" id="featuredBooksContainer">
+            <!-- Cards will be injected here from API -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<section class="top-authors-section py-5 bg-light" id="top-authors">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="fw-bold text-primary"><i class="fas fa-user-edit me-2"></i> Top Authors</h2>
+      <p class="text-muted">Meet the minds behind our most highly rated books.</p>
+    </div>
+
+    <div class="row g-4 authors-container" id="authors-container">
+
+      <!-- Author 1 -->
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="author-card p-4 text-center shadow-sm rounded-4 bg-white h-100">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mb-3" width="90" height="90" alt="Dr. Alan Watson">
+          <h6 class="fw-bold mb-1">Dr. Alan Watson</h6>
+          <p class="text-muted small mb-2">AI & Robotics</p>
+          <div class="text-warning stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Author 2 -->
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="author-card p-4 text-center shadow-sm rounded-4 bg-white h-100">
+          <img src="https://randomuser.me/api/portraits/women/58.jpg" class="rounded-circle mb-3" width="90" height="90" alt="Dr. Sophia King">
+          <h6 class="fw-bold mb-1">Dr. Sophia King</h6>
+          <p class="text-muted small mb-2">Neuroscience</p>
+          <div class="text-warning stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Author 3 -->
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="author-card p-4 text-center shadow-sm rounded-4 bg-white h-100">
+          <img src="https://randomuser.me/api/portraits/men/71.jpg" class="rounded-circle mb-3" width="90" height="90" alt="Eng. Omar Al-Masri">
+          <h6 class="fw-bold mb-1">Eng. Omar Al-Masri</h6>
+          <p class="text-muted small mb-2">Cyber Security</p>
+          <div class="text-warning stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+
+</section>
+<!-- ===== Testimonials Section ===== -->
+
+<section class=" py-5" id="testimonials">
+  <div class="container" data-aos="fade-up">
+    <h2 class="text-center mb-3 fw-bold">
+      <i class="fas fa-comments me-2 text-dark"></i>
+      What Our Learners Say
+    </h2>
+    <p class="text-center" style="color: #1e1614; font-size: 1.1rem;">
+      Hear what learners love about EduVerse.
+    </p>
+    
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+          <div class="card border-0 shadow p-4 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-3" width="60" height="60" alt="User">
+              <div>
+                <h6 class="mb-0 fw-bold">Sarah M.</h6>
+                <small class="text-muted">Software Engineer</small>
+              </div>
+            </div>
+            <p class="mb-3">"EduVerse completely changed how I learn online. The book selection is top-notch!"</p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+          <div class="card border-0 shadow p-4 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/men/35.jpg" class="rounded-circle me-3" width="60" height="60" alt="User">
+              <div>
+                <h6 class="mb-0 fw-bold">Ahmed K.</h6>
+                <small class="text-muted">AI Researcher</small>
+              </div>
+            </div>
+            <p class="mb-3">"The interface is smooth, and I love the category filtering. EduVerse is brilliant!"</p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide">
+          <div class="card border-0 shadow p-4 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle me-3" width="60" height="60" alt="User">
+              <div>
+                <h6 class="mb-0 fw-bold">Layla H.</h6>
+                <small class="text-muted">Medical Student</small>
+              </div>
+            </div>
+            <p class="mb-3">"I found exactly the books I needed. The ratings really help in choosing." </p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Upcoming Events Section -->
+<section id="upcoming" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="fw-bold text-primary"><i class="fas fa-calendar-alt me-2"></i> Upcoming Releases</h2>
+      <p class="text-muted">Stay tuned for our newest additions</p>
+    </div>
+
+    <div class="swiper upcomingSwiper" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+
+        <!-- Card 1 -->
+        <div class="swiper-slide">
+          <div class="card shadow-sm h-100">
+            <img src="Screenshot 2025-07-19 235454.png" class="card-img-top" alt="Upcoming Book">
+            <div class="card-body">
+              <h5 class="card-title">AI for Healthcare</h5>
+              <p class="card-text text-muted">Expected: August 2025</p>
+              <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#notifyModal">Notify Me</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide">
+          <div class="card shadow-sm h-100">
+            <img src="61fCrrsOE4L._SY466_.jpg" class="card-img-top" alt="Upcoming Course">
+            <div class="card-body">
+              <h5 class="card-title">Mastering JavaScript ES2025</h5>
+              <p class="card-text text-muted">Expected: September 2025</p>
+              <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#notifyModal">Notify Me</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide">
+          <div class="card shadow-sm h-100">
+            <img src="31bWZZ8Rv8S.jpg" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <h5 class="card-title">EduVerse Live Workshop</h5>
+              <p class="card-text text-muted">Expected: October 2025</p>
+              <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#notifyModal">Notify Me</a>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination mt-3"></div>
+    </div>
+  </div>
+</section>
+<section id="faq" class="py-5 bg-light">
+  <div class="container" data-aos="fade-up">
+    <div class="text-center mb-5">
+      <h2><i class="fas fa-question-circle me-2"></i> Frequently Asked Questions</h2>
+      <p class="text-muted">Everything you need to know about EduVerse</p>
+    </div>
+
+    <div class="accordion" id="faqAccordion">
+
+      <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="faqOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#answerOne" aria-expanded="true" aria-controls="answerOne">
+            <i class="fas fa-question-circle me-2 text-primary"></i> What is EduVerse?
+          </button>
+        </h2>
+        <div id="answerOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            EduVerse is a digital learning platform that gives you access to a vast library of books, tutorials, and educational content.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="faqTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
+            <i class="fas fa-lock me-2 text-primary"></i> Is EduVerse free to use?
+          </button>
+        </h2>
+        <div id="answerTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! EduVerse is completely free. Just create an account and start learning instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="faqThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerThree" aria-expanded="false" aria-controls="answerThree">
+            <i class="fas fa-download me-2 text-primary"></i> Can I download books for offline reading?
+          </button>
+        </h2>
+        <div id="answerThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Currently, downloading is not supported. However, you can bookmark and read online anytime.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="faqFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerFour" aria-expanded="false" aria-controls="answerFour">
+            <i class="fas fa-chart-line me-2 text-primary"></i> How can I track my reading progress?
+          </button>
+        </h2>
+        <div id="answerFour" class="accordion-collapse collapse" aria-labelledby="faqFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Simply go to your profile to see your reading history, last read page, and favorite books.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="faqFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerFive" aria-expanded="false" aria-controls="answerFive">
+            <i class="fas fa-calendar-alt me-2 text-primary"></i> Are there any live events or webinars?
+          </button>
+        </h2>
+        <div id="answerFive" class="accordion-collapse collapse" aria-labelledby="faqFive" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, check our Events section regularly to join upcoming webinars, author talks, and workshops.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="faqSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answerSix" aria-expanded="false" aria-controls="answerSix">
+            <i class="fas fa-globe me-2 text-primary"></i> Is EduVerse available in Arabic?
+          </button>
+        </h2>
+        <div id="answerSix" class="accordion-collapse collapse" aria-labelledby="faqSix" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Currently, we support English only. Arabic language support will be added soon.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<footer class="footer bg-dark text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <!-- Contact Info Top -->
+      <div class="col-md-3 mb-4">
+        <h5 class="mb-3"><i class="fas fa-phone-alt me-2"></i> Call Us</h5>
+        <p>+20 109 871 8759</p>
+        <h5 class="mt-4 mb-3"><i class="fas fa-envelope me-2"></i> Make a Quote</h5>
+        <p>EduVerse@gmail.com</p>
+        <h5 class="mt-4 mb-3"><i class="fas fa-clock me-2"></i> Opening Hours</h5>
+        <p>Sunday - Friday: 9AM - 6PM</p>
+      </div>
+
+      
+      <div class="col-md-3 mb-4">
+        <h5 class="mb-3"><i class="fas fa-book-open me-2"></i>EduVerse</h5>
+        <p>Personal online education and digital library service. Browse, save, and experience knowledge like never before.</p>
+        <div class="social-icons mt-3">
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="col-md-2 mb-4">
+        <h5 class="mb-3"><i class="fas fa-headset me-2"></i> Support</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-info-circle me-2"></i><a href="#" class="text-white text-decoration-none">User Help</a></li>
+          <li><i class="fas fa-clock me-2"></i><a href="#" class="text-white text-decoration-none">Opening Hours</a></li>
+          <li><i class="fas fa-headset me-2"></i><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
+          <li><i class="fas fa-undo me-2"></i><a href="#" class="text-white text-decoration-none">Return Policy</a></li>
+        </ul>
+        
+      </div>
+
+      <!-- Services -->
+      <div class="col-md-2 mb-4">
+        <h5><i class="fas fa-concierge-bell me-2"></i> Our Services</h5>
+        <li><i class="fas fa-map-marked-alt me-2"></i> Top Areas</li>
+        <li><i class="fas fa-bolt me-2"></i> New Releases</li>
+        <li><i class="fas fa-money-bill me-2"></i> Service Charges</li>
+        <li><i class="fas fa-shield-alt me-2"></i> Privacy Policy</li>
+        
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-2 mb-4">
+        <h5 class="mb-3"><i class="fas fa-newspaper me-2"></i> Newsletter</h5>
+        <p>Subscribe for the latest updates and offers.</p>
+        <form>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Email Address">
+            <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="text-center border-top pt-3 mt-4">
+      <small>&copy; 2025 EduVerse. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+<!-- Notify Modal -->
+<div class="modal fade" id="notifyModal" tabindex="-1" aria-labelledby="notifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-4 shadow" style="background: linear-gradient(145deg, #2a1e12, #1a120a); color: #f5f5f5;">
+      
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title" id="notifyModalLabel" style="color: #ffc107;">
+          <i class="fas fa-bell me-2"></i> Get Notified
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="notifyForm">
+          <div class="mb-3">
+            <label for="notifyEmail" class="form-label">Your Email Address</label>
+            <input type="email" class="form-control bg-dark text-light border-warning" id="notifyEmail" placeholder="you@example.com" required>
+          </div>
+          <button type="submit" class="btn w-100" style="
+              background: linear-gradient(135deg, #ffcc00, #e0b400);
+              color: #1a120a;
+              font-weight: 600;
+              border-radius: 12px;
+              box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+              transition: all 0.3s ease;
+            ">
+            Notify Me
+          </button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+  <script>
+    AOS.init();
+  </script>
+
+<!-- Testimonials Swiper Activation -->
+<script>
+  var testimonialSwiper = new Swiper(".testimonials-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>
+<!-- Swiper JS -->
+<script>
+  var swiper = new Swiper(".upcomingSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 5000,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      992: {
+        slidesPerView: 3
+      }
+    }
+  });
+</script>
+
+<script>
+  function showSweetAlert(message = "تمت العملية بنجاح!") {
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+</script>
+<script>
+
+
+function showToast() {
+  const toastEl = document.getElementById('liveToast');
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+}
+</script>
+<script src="home.js"></script>
+
+<script>
+  const userArea = document.getElementById('userArea');
+  const userData = localStorage.getItem('loggedUser'); // ← عدّلنا هنا
+
+  if (userData) {
+    const user = JSON.parse(userData);
+    userArea.innerHTML = `
+      <span style="color: white; font-weight: bold;">
+        <i class="fas fa-user me-1"></i>${user.name}
+      </span>
+      <button class="login-btn ms-2" onclick="logoutUser()" style="background: none; border: 1px solid white;">
+        <i class="fas fa-sign-out-alt me-1"></i>Logout
+      </button>
+    `;
+  }
+
+  function logoutUser() {
+    localStorage.removeItem('loggedUser'); // ← وعدّلنا هنا
+    location.reload();
+  }
+</script>
+
+</script>
+</body>
+
+</html>
